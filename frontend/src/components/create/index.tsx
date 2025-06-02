@@ -14,7 +14,13 @@ export default function CreateComponent(){
 		axios.post('http://localhost:3000/employee/create', {
 			name, dept, pass
 		}).then((response) => {
-			alert(response.data)
+			const data = response.data
+
+			if(data.message==="success"){
+				nameRef.current!.value = '';
+				deptRef.current!.value = '';
+				passRef.current!.value = '';
+			}
 		})
 	}
 
